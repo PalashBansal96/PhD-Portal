@@ -4,7 +4,122 @@
  */
 package com.iiitd.ap.project.application;
 
-public class Application {
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import org.json.simple.JSONObject;
+
+
+public class PhDApplication {
+
+	private String filePath;
+	private String jsonData;
+
+	public PhDApplication(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public void appendToFile() throws IOException {
+		RandomAccessFile f = new RandomAccessFile(filePath, "rw");
+		f.setLength(f.length() - 1);
+		f.close();
+
+		JSONObject jsonObject = new JSONObject();
+
+		jsonObject.put("name", name);
+		jsonObject.put("enrollNo", enrollNo);
+		jsonObject.put("address", address);
+		jsonObject.put("mobileNo", mobileNo);
+		jsonObject.put("phdStream", phdStream);
+		jsonObject.put("areaPref1", areaPref1);
+		jsonObject.put("areaPref2", areaPref2);
+		jsonObject.put("areaPref3", areaPref3);
+		jsonObject.put("email", email);
+		jsonObject.put("dob", dob);
+		jsonObject.put("gender", gender);
+		jsonObject.put("category", category);
+		jsonObject.put("fatherName", fatherName);
+		jsonObject.put("nationality", nationality);
+		jsonObject.put("permAddress", permAddress);
+		jsonObject.put("pinCode", pinCode);
+		jsonObject.put("xBoard", xBoard);
+		jsonObject.put("xiiBoard", xiiBoard);
+		jsonObject.put("gradDegree", gradDegree);
+		jsonObject.put("gradDepartment", gradDepartment);
+		jsonObject.put("gradCollege", gradCollege);
+		jsonObject.put("gradUniversity", gradUniversity);
+		jsonObject.put("gradCity", gradCity);
+		jsonObject.put("gradState", gradState);
+		jsonObject.put("gradScore", gradScore);
+		jsonObject.put("achievements", achievements);
+
+		jsonObject.put("physicallyDisabled", physicallyDisabled);
+		jsonObject.put("defenceConcession", defenceConcession);
+		jsonObject.put("xBoardPercent", xBoardPercent);
+		jsonObject.put("xBoardYear", xBoardYear);
+		jsonObject.put("xiiBoardPercent", xiiBoardPercent);
+		jsonObject.put("xiiBoardYear", xiiBoardYear);
+		jsonObject.put("gradYear", gradYear);
+		jsonObject.put("gradCGPA", gradCGPA);
+		jsonObject.put("gradNoSub", gradNoSub);
+		jsonObject.put("gradMarks", gradMarks);
+		jsonObject.put("ece", ece);
+		jsonObject.put("postGrad", postGrad);
+		jsonObject.put("other", other);
+		jsonObject.put("gate", gate);
+
+		if(ece) {
+			jsonObject.put("ecePref1", ecePref1);
+			jsonObject.put("ecePref2", ecePref2);
+			jsonObject.put("ecePref3", ecePref3);
+			jsonObject.put("ecePref4", ecePref4);
+		}
+
+		if(postGrad) {
+			jsonObject.put("postGradYear", postGradYear);
+			jsonObject.put("postGradCGPA", postGradCGPA);
+			jsonObject.put("postGradNoSub", postGradNoSub);
+			jsonObject.put("postGradMarks", postGradMarks);
+			jsonObject.put("postGradDegree", postGradDegree);
+			jsonObject.put("postGradDepartment", postGradDepartment);
+			jsonObject.put("postGradCollege", postGradCollege);
+			jsonObject.put("postGradUniversity", postGradUniversity);
+			jsonObject.put("postGradCity", postGradCity);
+			jsonObject.put("postGradState", postGradState);
+			jsonObject.put("postGradScore", postGradScore);
+		}
+
+		if(other) {
+			jsonObject.put("otherExamName", otherExamName);
+			jsonObject.put("otherSubject", otherSubject);
+			jsonObject.put("otherScore", otherScore);
+			jsonObject.put("otherRank", otherRank);
+			jsonObject.put("otherYear", otherYear);
+		}
+
+		if(gate) {
+			jsonObject.put("gateMarks", gateMarks);
+			jsonObject.put("gateScore", gateScore);
+			jsonObject.put("gateRank", gateRank);
+			jsonObject.put("gateYear", gateYear);
+			jsonObject.put("gateArea", gateArea);
+		}
+
+		jsonData = jsonObject.toJSONString() + "\n]";
+
+		Files.write(Paths.get(filePath), jsonData.getBytes(), StandardOpenOption.APPEND);
+	}
+
+	public void loadFromFile() throws IOException {
+
+	}
+
+
+
+
+
 
 	public String getName() {
 		return name;

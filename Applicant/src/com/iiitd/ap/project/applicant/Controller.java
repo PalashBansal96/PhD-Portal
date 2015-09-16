@@ -5,6 +5,7 @@
 
 package com.iiitd.ap.project.applicant;
 
+import com.iiitd.ap.project.application.PhDApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -148,7 +149,7 @@ public class Controller {
 
 	@FXML
 	void submit(ActionEvent event) {
-
+		PhDApplication a;
 	}
 
 	private List<TextField> mandatoryText;

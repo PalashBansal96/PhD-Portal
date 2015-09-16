@@ -4,7 +4,7 @@
 
  */
 
-package com.iiitd.ap.project.applicant.admin;
+package com.iiitd.ap.project.admin;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
