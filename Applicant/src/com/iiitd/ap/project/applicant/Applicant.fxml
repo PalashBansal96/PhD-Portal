@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.TabPane?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iiitd.ap.project.applicant.Controller">
    <top>
       <Label focusTraversable="false" prefHeight="35.0" prefWidth="765.0" style="-fx-background-color: #9FD7E3; -fx-text-fill: #08335a; -fx-font-size: 14; -fx-font-weight: Bold;" text="       Submit button appears on successful completion of all forms fields." textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
@@ -179,10 +179,7 @@
                                                             <Insets left="30.0" />
                                                          </HBox.margin>
                                                       </RadioButton>
-                                                      <RadioButton mnemonicParsing="false" text="SC">
-                                                         <toggleGroup>
-                                                            <ToggleGroup fx:id="category1" />
-                                                         </toggleGroup>
+                                                      <RadioButton mnemonicParsing="false" text="SC" toggleGroup="$category">
                                                          <HBox.margin>
                                                             <Insets left="30.0" />
                                                          </HBox.margin>
@@ -223,10 +220,10 @@
                                                             <Insets left="30.0" />
                                                          </HBox.margin>
                                                          <toggleGroup>
-                                                            <ToggleGroup fx:id="defenceConsession" />
+                                                            <ToggleGroup fx:id="defenceConcession" />
                                                          </toggleGroup>
                                                       </RadioButton>
-                                                      <RadioButton mnemonicParsing="false" text="No" toggleGroup="$defenceConsession">
+                                                      <RadioButton mnemonicParsing="false" text="No" toggleGroup="$defenceConcession">
                                                          <HBox.margin>
                                                             <Insets left="30.0" />
                                                          </HBox.margin>
@@ -464,7 +461,7 @@
                                     </AnchorPane>
                                  </content>
                             </TitledPane>
-                              <TitledPane layoutX="10.0" layoutY="60.0" prefHeight="117.0" prefWidth="705.0" style="-fx-font-weight: bold;" text="ECE PhD Subject Preference">
+                              <TitledPane fx:id="ece" layoutX="10.0" layoutY="60.0" prefHeight="117.0" prefWidth="705.0" style="-fx-font-weight: bold;" text="ECE PhD Subject Preference">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -509,7 +506,7 @@
                                     </AnchorPane>
                                  </content>
                               </TitledPane>
-                              <TitledPane layoutX="10.0" layoutY="60.0" prefHeight="117.0" prefWidth="705.0" style="-fx-font-weight: bold;" text="Post - Graduation Information">
+                              <TitledPane fx:id="postGrad" layoutX="10.0" layoutY="60.0" prefHeight="117.0" prefWidth="705.0" style="-fx-font-weight: bold;" text="Post - Graduation Information">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -619,7 +616,7 @@
                                                             <Insets right="15.0" />
                                                          </HBox.margin>
                                                       </RadioButton>
-                                                      <TextField fx:id="postGradCGPA" prefHeight="25.0" prefWidth="116.0">
+                                                      <TextField fx:id="postGradMarks" prefHeight="25.0" prefWidth="116.0">
                                                          <HBox.margin>
                                                             <Insets right="15.0" />
                                                          </HBox.margin>
@@ -635,7 +632,7 @@
                                     </AnchorPane>
                                  </content>
                               </TitledPane>
-                              <TitledPane layoutX="10.0" layoutY="85.0" prefHeight="117.0" prefWidth="705.0" style="-fx-font-weight: bold;" text="Other Academic Degrees">
+                              <TitledPane fx:id="other" layoutX="10.0" layoutY="85.0" prefHeight="117.0" prefWidth="705.0" style="-fx-font-weight: bold;" text="Other Academic Degrees">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -697,7 +694,7 @@
                                     </AnchorPane>
                                  </content>
                               </TitledPane>
-                              <TitledPane layoutX="10.0" layoutY="135.0" prefHeight="117.0" prefWidth="705.0" style="-fx-font-weight: bold;" text="GATE">
+                              <TitledPane fx:id="gate" layoutX="10.0" layoutY="135.0" prefHeight="117.0" prefWidth="705.0" style="-fx-font-weight: bold;" text="GATE">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -901,7 +898,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="885.0" prefWidth="720.0">
                      <children>
                         <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="742.0" style="-fx-font-size: 11; -fx-font-weight: bold; -fx-text-fill: white;" text="Please complete and save all the fields before you click the submit button. Once you have submitted you will not be able to edit any field." />
-                        <Button fx:id="masterSubmit" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" style="-fx-font-weight: bold; -fx-font-size: 15; -fx-background-color: #64dd17; -fx-text-fill: white;" text="SUBMIT" />
+                        <Button fx:id="masterSubmit" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="92.0" style="-fx-font-weight: bold; -fx-font-size: 15; -fx-background-color: #64dd17; -fx-text-fill: white;" text="SUBMIT" />
                      </children>
                   </AnchorPane>
               </content>
