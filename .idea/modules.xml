@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Admin/Admin.iml" filepath="$PROJECT_DIR$/Admin/Admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/Applicant/Applicant.iml" filepath="$PROJECT_DIR$/Applicant/Applicant.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ApplicantForms/ApplicantForms.iml" filepath="$PROJECT_DIR$/ApplicantForms/ApplicantForms.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/PhD-Portal.iml" filepath="$PROJECT_DIR$/.idea/PhD-Portal.iml" />
     </modules>
   </component>
