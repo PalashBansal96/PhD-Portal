@@ -9,16 +9,114 @@ import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import org.json.simple.JSONObject;
-
+import org.json.simple.parser.JSONParser;
 
 public class PhDApplication {
 
 	private String filePath;
 	private String jsonData;
+	private String date;
+	private String timestamp;
 
 	public PhDApplication(String filePath) {
 		this.filePath = filePath;
+	}
+	public PhDApplication(){}
+
+	public static PhDApplication objectFromJSON(String json){
+		PhDApplication result = new PhDApplication();
+		JSONParser parser = new JSONParser();
+
+		try{
+			JSONObject jsonObject= (JSONObject) parser.parse(json);
+
+			result.name = (String) jsonObject.get("name");
+			result.enrollNo = (String) jsonObject.get("enrollNo");
+			result.address = (String) jsonObject.get("address");
+			result.mobileNo = (String) jsonObject.get("mobileNo");
+			result.phdStream = (String) jsonObject.get("phdStream");
+			result.areaPref1 = (String) jsonObject.get("areaPref1");
+			result.areaPref2 = (String) jsonObject.get("areaPref2");
+			result.areaPref3 = (String) jsonObject.get("areaPref3");
+			result.email = (String) jsonObject.get("email");
+			result.dob = (String) jsonObject.get("dob");
+			result.gender = (String) jsonObject.get("gender");
+			result.category = (String) jsonObject.get("category");
+			result.fatherName = (String) jsonObject.get("fatherName");
+			result.nationality = (String) jsonObject.get("nationality");
+			result.permAddress = (String) jsonObject.get("permAddress");
+			result.pinCode = (String) jsonObject.get("pinCode");
+			result.xBoard = (String) jsonObject.get("xBoard");
+			result.xiiBoard = (String) jsonObject.get("xiiBoard");
+			result.gradDegree = (String) jsonObject.get("gradDegree");
+			result.gradDepartment = (String) jsonObject.get("gradDepartment");
+			result.gradCollege = (String) jsonObject.get("gradCollege");
+			result.gradUniversity = (String) jsonObject.get("gradUniversity");
+			result.gradCity = (String) jsonObject.get("gradCity");
+			result.gradState = (String) jsonObject.get("gradState");
+			result.gradScore = (String) jsonObject.get("gradScore");
+			result.achievements = (String) jsonObject.get("achievements");
+
+			result.physicallyDisabled = (Boolean) jsonObject.get("physicallyDisabled");
+			result.defenceConcession = (Boolean) jsonObject.get("defenceConcession");
+			result.xBoardPercent = (Integer) jsonObject.get("xBoardPercent");
+			result.xBoardYear = (Integer) jsonObject.get("xBoardYear");
+			result.xiiBoardPercent = (Integer) jsonObject.get("xiiBoardPercent");
+			result.xiiBoardYear = (Integer) jsonObject.get("xiiBoardYear");
+			result.gradYear = (Integer) jsonObject.get("gradYear");
+			result.gradCGPA = (Integer) jsonObject.get("gradCGPA");
+			result.gradNoSub = (Integer) jsonObject.get("gradNoSub");
+			result.gradMarks = (Integer) jsonObject.get("gradMarks");
+			result.ece = (Boolean) jsonObject.get("ece");
+			result.postGrad = (Boolean) jsonObject.get("postGrad");
+			result.other = (Boolean) jsonObject.get("other");
+			result.gate = (Boolean) jsonObject.get("gate");
+
+			if(result.ece) {
+				result.ecePref1 = (String) jsonObject.get("ecePref1");
+				result.ecePref2 = (String) jsonObject.get("ecePref2");
+				result.ecePref3 = (String) jsonObject.get("ecePref3");
+				result.ecePref4 = (String) jsonObject.get("ecePref4");
+			}
+
+			if(result.postGrad) {
+				result.postGradYear = (Integer) jsonObject.get("postGradYear");
+				result.postGradCGPA = (Integer) jsonObject.get("postGradCGPA");
+				result.postGradNoSub = (Integer) jsonObject.get("postGradNoSub");
+				result.postGradMarks = (Integer) jsonObject.get("postGradMarks");
+				result.postGradDegree = (String) jsonObject.get("postGradDegree");
+				result.postGradDepartment = (String) jsonObject.get("postGradDepartment");
+				result.postGradCollege = (String) jsonObject.get("postGradCollege");
+				result.postGradUniversity = (String) jsonObject.get("postGradUniversity");
+				result.postGradCity = (String) jsonObject.get("postGradCity");
+				result.postGradState = (String) jsonObject.get("postGradState");
+				result.postGradScore = (String) jsonObject.get("postGradScore");
+			}
+
+			if(result.other) {
+				result.otherExamName = (String) jsonObject.get("otherExamName");
+				result.otherSubject = (String) jsonObject.get("otherSubject");
+				result.otherScore = (Integer) jsonObject.get("otherScore");
+				result.otherRank = (Integer) jsonObject.get("otherRank");
+				result.otherYear = (Integer) jsonObject.get("otherYear");
+			}
+
+			if(result.gate) {
+				result.gateMarks = (Integer) jsonObject.get("gateMarks");
+				result.gateScore = (Integer) jsonObject.get("gateScore");
+				result.gateRank = (Integer) jsonObject.get("gateRank");
+				result.gateYear = (Integer) jsonObject.get("gateYear");
+				result.gateArea = (String) jsonObject.get("gateArea");
+			}
+
+		}catch(Exception pe){
+			pe.printStackTrace();
+		}
+
+		return result;
 	}
 
 	public void appendToFile() throws IOException {
@@ -27,6 +125,12 @@ public class PhDApplication {
 		f.close();
 
 		JSONObject jsonObject = new JSONObject();
+
+		date = new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime());
+		timestamp = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
+
+		jsonObject.put("timestamp", timestamp);
+		jsonObject.put("date", date);
 
 		jsonObject.put("name", name);
 		jsonObject.put("enrollNo", enrollNo);

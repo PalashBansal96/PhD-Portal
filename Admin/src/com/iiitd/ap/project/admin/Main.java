@@ -1,7 +1,6 @@
 /**
  * @author Palash Bansal
  * @date 9/13/2015
-
  */
 
 package com.iiitd.ap.project.admin;
@@ -11,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -20,9 +20,12 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-		primaryStage.setTitle("PhD Application");
-		primaryStage.setScene(new Scene(root, 300, 275));
+		primaryStage.initStyle(StageStyle.UNDECORATED);
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		Parent root = fxmlLoader.load(getClass().getResource("AdminFilter.fxml").openStream());
+		((AdminFilterController)fxmlLoader.getController()).initialize();
+		primaryStage.setTitle("PhD Application Admin Panel");
+		primaryStage.setScene(new Scene(root, 800, 600));
 		primaryStage.show();
 	}
 }

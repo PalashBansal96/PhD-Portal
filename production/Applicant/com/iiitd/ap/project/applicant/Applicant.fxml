@@ -12,13 +12,6 @@
 <?import javafx.scene.control.TabPane?>
 
 <BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iiitd.ap.project.applicant.Controller">
-   <top>
-      <Label focusTraversable="false" prefHeight="35.0" prefWidth="765.0" style="-fx-background-color: #9FD7E3; -fx-text-fill: #08335a; -fx-font-size: 14; -fx-font-weight: Bold;" text="       Submit button appears on successful completion of all forms fields." textFill="WHITE" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-   </top>
    <center>
       <TabPane fx:id="tabPane" prefHeight="591.0" prefWidth="765.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
@@ -839,20 +832,30 @@
                            </effect>
                         </Button>
                         <Button layoutX="34.0" layoutY="70.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="389.0" style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: white; -fx-background-color: #64dd17;" text="Pay Using Debit Card or Net Banking" />
-                        <CheckBox layoutX="105.0" layoutY="280.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14;" text="Will you be paying through Demand Draft " />
-                        <Label layoutX="35.0" layoutY="318.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14;" text="Bank Name" />
-                        <Label layoutX="35.0" layoutY="368.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14;" text="Branch" />
-                        <Label layoutX="14.0" layoutY="402.0" style="-fx-font-weight: bold; -fx-text-fill: white; -fx-font-size: 14;" text="Demand Draft Number" />
-                        <TextField layoutX="180.0" layoutY="314.0" prefHeight="25.0" prefWidth="336.0" />
-                        <TextField layoutX="180.0" layoutY="356.0" prefHeight="25.0" prefWidth="336.0" />
-                        <TextField layoutX="180.0" layoutY="400.0" prefHeight="25.0" prefWidth="336.0" />
+                        <CheckBox layoutX="105.0" layoutY="280.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Will you be paying through Demand Draft " />
+                        <Label layoutX="35.0" layoutY="318.0" style="-fx-text-fill: black;" text="Bank Name" />
+                        <Label layoutX="35.0" layoutY="368.0" style="-fx-text-fill: black;" text="Branch" />
+                        <Label layoutX="14.0" layoutY="402.0" style="-fx-text-fill: black;" text="Demand Draft Number" />
+                        <TextField layoutX="180.0" layoutY="314.0" prefHeight="25.0" prefWidth="336.0" style="-fx-text-fill: black;" />
+                        <TextField layoutX="180.0" layoutY="356.0" prefHeight="25.0" prefWidth="336.0" style="-fx-text-fill: black;" />
+                        <TextField layoutX="180.0" layoutY="400.0" prefHeight="25.0" prefWidth="336.0" style="-fx-text-fill: black;" />
+                        <ImageView fitHeight="55.0" fitWidth="794.0" layoutX="4.0" layoutY="3.0">
+                           <image>
+                              <Image url="@../../../../../../../../../Downloads/AP_Project/AP_Project/src/images/pay_banner.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="137.0" fitWidth="788.0" layoutX="7.0" layoutY="122.0">
+                           <image>
+                              <Image url="@../../../../../../../../../Downloads/AP_Project/AP_Project/src/images/payaddress.PNG" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
             <Tab style="-fx-font-size: 17; -fx-font-weight: Bold;" text="Feedback">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-font-fill: white;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button layoutX="14.0" layoutY="509.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: black; -fx-font-size: 15; -fx-font-weight: Bold; -fx-text-fill: white;" text="SAVE">
                            <cursor>
@@ -862,33 +865,33 @@
                               <Glow level="0.42" />
                            </effect>
                         </Button>
-                        <RadioButton layoutX="245.0" layoutY="14.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Advertisement in the Dainik Jagran " />
-                        <RadioButton layoutX="245.0" layoutY="34.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Advertisement in the Hindu " />
-                        <RadioButton layoutX="245.0" layoutY="54.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Advertisement in the Hindustan Times " />
-                        <RadioButton layoutX="245.0" layoutY="74.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="PhD flier " />
-                        <RadioButton layoutX="245.0" layoutY="95.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="IIIT-Delhi Website " />
-                        <RadioButton layoutX="245.0" layoutY="119.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Other Website " />
-                        <RadioButton layoutX="245.0" layoutY="141.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Talk/Presentation " />
-                        <RadioButton layoutX="245.0" layoutY="165.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="College/Teacher/Academic relation " />
-                        <RadioButton layoutX="245.0" layoutY="188.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Friend/Family/Personal relation " />
-                        <RadioButton layoutX="245.0" layoutY="211.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Other " />
-                        <CheckBox layoutX="245.0" layoutY="253.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Faculty profile " />
-                        <CheckBox layoutX="245.0" layoutY="274.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Aligned research area/research projects " />
-                        <CheckBox layoutX="245.0" layoutY="295.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Collaborative PhD program " />
-                        <CheckBox layoutX="245.0" layoutY="314.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Sponsored PhD program " />
-                        <CheckBox layoutX="245.0" layoutY="333.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="No GATE requirement " />
-                        <CheckBox layoutX="245.0" layoutY="354.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Attractive stipend and other benefits " />
-                        <CheckBox layoutX="245.0" layoutY="373.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Located in Delhi " />
-                        <CheckBox layoutX="245.0" layoutY="392.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="May not get into IIT " />
-                        <CheckBox layoutX="245.0" layoutY="412.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="I want to do PhD. IIIT-Delhi is one good option " />
-                        <CheckBox layoutX="245.0" layoutY="434.0" mnemonicParsing="false" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Completely different reason. If none of the above applies, you may check this " />
-                        <Label layoutX="95.0" layoutY="26.0" style="-fx-font-weight: bold; -fx-text-fill: white;" text="How did you first hear" />
-                        <Label layoutX="107.0" layoutY="46.0" style="-fx-font-weight: bold; -fx-text-fill: white;" text="about the IIIT-Delhi " />
-                        <Label layoutX="131.0" layoutY="66.0" style="-fx-font-weight: bold; -fx-text-fill: white;" text="PhD program?*" />
-                        <Label layoutX="146.0" layoutY="271.0" style="-fx-font-weight: bold; -fx-text-fill: white;" text="Why are you" />
-                        <Label layoutX="127.0" layoutY="287.0" style="-fx-font-weight: bold;" text="interested in the " />
-                        <Label layoutX="136.0" layoutY="306.0" style="-fx-font-weight: bold; -fx-text-fill: white;" text="IIIT-Delhi PhD " />
-                        <Label layoutX="153.0" layoutY="323.0" style="-fx-font-weight: bold; -fx-text-fill: white;" text="program?*" />
+                        <RadioButton layoutX="245.0" layoutY="14.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Advertisement in the Dainik Jagran " />
+                        <RadioButton layoutX="245.0" layoutY="34.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Advertisement in the Hindu " />
+                        <RadioButton layoutX="245.0" layoutY="54.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Advertisement in the Hindustan Times " />
+                        <RadioButton layoutX="245.0" layoutY="74.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="PhD flier " />
+                        <RadioButton layoutX="245.0" layoutY="95.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="IIIT-Delhi Website " />
+                        <RadioButton layoutX="245.0" layoutY="119.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Other Website " />
+                        <RadioButton layoutX="245.0" layoutY="141.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Talk/Presentation " />
+                        <RadioButton layoutX="245.0" layoutY="165.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="College/Teacher/Academic relation " />
+                        <RadioButton layoutX="245.0" layoutY="188.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Friend/Family/Personal relation " />
+                        <RadioButton layoutX="245.0" layoutY="211.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Other " />
+                        <CheckBox layoutX="245.0" layoutY="253.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Faculty profile " />
+                        <CheckBox layoutX="245.0" layoutY="274.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Aligned research area/research projects " />
+                        <CheckBox layoutX="245.0" layoutY="295.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Collaborative PhD program " />
+                        <CheckBox layoutX="245.0" layoutY="314.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Sponsored PhD program " />
+                        <CheckBox layoutX="245.0" layoutY="333.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="No GATE requirement " />
+                        <CheckBox layoutX="245.0" layoutY="354.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Attractive stipend and other benefits " />
+                        <CheckBox layoutX="245.0" layoutY="373.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Located in Delhi " />
+                        <CheckBox layoutX="245.0" layoutY="392.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="May not get into IIT " />
+                        <CheckBox layoutX="245.0" layoutY="412.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="I want to do PhD. IIIT-Delhi is one good option " />
+                        <CheckBox layoutX="245.0" layoutY="434.0" mnemonicParsing="false" style="-fx-text-fill: black;" text="Completely different reason. If none of the above applies, you may check this " />
+                        <Label layoutX="95.0" layoutY="26.0" style="-fx-text-fill: black;" text="How did you first hear" />
+                        <Label layoutX="107.0" layoutY="46.0" style="-fx-text-fill: black;" text="about the IIIT-Delhi " />
+                        <Label layoutX="131.0" layoutY="66.0" style="-fx-text-fill: black;" text="PhD program?*" />
+                        <Label layoutX="146.0" layoutY="271.0" style="-fx-text-fill: black;" text="Why are you" />
+                        <Label layoutX="127.0" layoutY="287.0" style="-fx-text-fill: black;" text="interested in the " />
+                        <Label layoutX="136.0" layoutY="306.0" style="-fx-text-fill: black;" text="IIIT-Delhi PhD " />
+                        <Label layoutX="153.0" layoutY="323.0" style="-fx-text-fill: black;" text="program?*" />
                      </children>
                   </AnchorPane>
               </content>
@@ -897,8 +900,9 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="885.0" prefWidth="720.0">
                      <children>
-                        <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="742.0" style="-fx-font-size: 11; -fx-font-weight: bold; -fx-text-fill: white;" text="Please complete and save all the fields before you click the submit button. Once you have submitted you will not be able to edit any field." />
-                        <Button fx:id="masterSubmit" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="92.0" style="-fx-font-weight: bold; -fx-font-size: 15; -fx-background-color: #64dd17; -fx-text-fill: white;" text="SUBMIT" />
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="48.0" prefWidth="742.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Please complete and save all the fields before you click the submit button. Once you have submitted you will not be able to edit any field." wrapText="true" />
+                        <Button fx:id="masterSubmit" layoutX="14.0" layoutY="70.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="92.0" style="-fx-font-weight: bold; -fx-font-size: 15; -fx-background-color: #64dd17; -fx-text-fill: white;" text="SUBMIT" />
+                        <Label alignment="TOP_LEFT" layoutX="18.0" layoutY="115.0" prefHeight="356.0" prefWidth="669.0" style="-fx-text-fill: #FA2A00; -fx-font-weight: bold;" text="PLEASE FILL IT" wrapText="true" />
                      </children>
                   </AnchorPane>
               </content>
@@ -913,4 +917,50 @@
          </font>
       </Label>
    </bottom>
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <GridPane layoutY="1.0" prefHeight="61.0" prefWidth="802.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label focusTraversable="false" prefHeight="44.0" prefWidth="802.0" style="-fx-background-color: #9FD7E3; -fx-text-fill: #08335a; -fx-font-size: 14; -fx-font-weight: Bold;" text="       Submit button appears on successful completion of all forms fields." textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <AnchorPane GridPane.columnSpan="2">
+                     <children>
+                        <ImageView fitHeight="48.0" fitWidth="802.0" layoutY="16.0">
+                           <image>
+                              <Image url="@../../../../../../../../../Downloads/AP_Project/AP_Project/src/images/banner.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="778.0" layoutY="21.0" mnemonicParsing="false" onAction="#exitApplication" style="-fx-background-color: #B8312E;" text="X">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="752.0" layoutY="21.0" mnemonicParsing="false" onAction="#minimizeApplication" style="-fx-background-color: #9FD7E3;" text="_">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>

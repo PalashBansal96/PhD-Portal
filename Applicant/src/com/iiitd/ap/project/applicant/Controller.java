@@ -10,6 +10,7 @@ import com.iiitd.ap.project.application.InvalidValueException;
 import com.iiitd.ap.project.application.PhDApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -285,7 +286,7 @@ public class Controller {
 		//	Files.write(Paths.get(enrollDataFile), baseEnroll.getBytes(), StandardOpenOption.APPEND);
 		//}
 		Integer enrollNo = Integer.parseInt(new String(Files.readAllBytes(Paths.get(enrollDataFile))));
-		Files.write(Paths.get(enrollDataFile), Integer.toString(enrollNo+1).getBytes(), StandardOpenOption.WRITE);
+		Files.write(Paths.get(enrollDataFile), Integer.toString(enrollNo + 1).getBytes(), StandardOpenOption.WRITE);
 		return "PhD" + (enrollNo + 1);
 	}
 
@@ -295,7 +296,7 @@ public class Controller {
 			phDApplication.setEnrollNo(enrollNo.getText());
 			phDApplication.setAddress(address.getText());
 			phDApplication.setMobileNo(mobileNo.getText());
-			phDApplication.setPhdStream(((RadioButton)phdStream.getSelectedToggle()).getText());
+			phDApplication.setPhdStream(((RadioButton) phdStream.getSelectedToggle()).getText());
 			phDApplication.setAreaPref1(areaPref1.getValue());
 			phDApplication.setAreaPref2(areaPref2.getValue());
 			phDApplication.setAreaPref3(areaPref3.getValue());
@@ -305,8 +306,8 @@ public class Controller {
 			}catch (Exception e){
 				System.out.println("Invalid Value: DOB");
 			}
-			phDApplication.setGender(((RadioButton)gender.getSelectedToggle()).getText());
-			phDApplication.setCategory(((RadioButton)category.getSelectedToggle()).getText());
+			phDApplication.setGender(((RadioButton) gender.getSelectedToggle()).getText());
+			phDApplication.setCategory(((RadioButton) category.getSelectedToggle()).getText());
 			phDApplication.setFatherName(fatherName.getText());
 			phDApplication.setNationality(nationality.getValue());
 			phDApplication.setPermAddress(permAddress.getText());
@@ -318,8 +319,8 @@ public class Controller {
 			phDApplication.setXiiBoardYear(xiiBoardYear.getValue());
 			phDApplication.setXiiBoardPercent(xiiBoardPercent.getText());
 			phDApplication.setAchievements(achievements.getText());
-			phDApplication.setPhysicallyDisabled(((RadioButton)physicallyDisabled.getSelectedToggle()).getText());
-			phDApplication.setDefenceConcession(((RadioButton)defenceConcession.getSelectedToggle()).getText());
+			phDApplication.setPhysicallyDisabled(((RadioButton) physicallyDisabled.getSelectedToggle()).getText());
+			phDApplication.setDefenceConcession(((RadioButton) defenceConcession.getSelectedToggle()).getText());
 			phDApplication.setGradDegree(gradDegree.getText());
 			phDApplication.setGradDepartment(gradDepartment.getText());
 			phDApplication.setGradCollege(gradCollege.getText());
@@ -382,5 +383,14 @@ public class Controller {
 			System.out.println("Invalid Value: " + e.field);
 			return false;
 		}
+	}
+	@FXML
+	void exitApplication() {
+		((Stage)this.tabPane.getScene().getWindow()).close();
+	}
+
+	@FXML
+	void minimizeApplication() {
+		((Stage)this.tabPane.getScene().getWindow()).setIconified(true);
 	}
 }

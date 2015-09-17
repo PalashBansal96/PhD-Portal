@@ -923,6 +923,7 @@
             <GridPane layoutY="1.0" prefHeight="61.0" prefWidth="802.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -945,12 +946,12 @@
                               <Image url="@../../../../../../../../../Downloads/AP_Project/AP_Project/src/images/banner.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="778.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #B8312E;" text="X">
+                        <Button layoutX="778.0" layoutY="21.0" mnemonicParsing="false" onAction="#exitApplication" style="-fx-background-color: #B8312E;" text="X">
                            <font>
                               <Font name="System Bold" size="10.0" />
                            </font>
                         </Button>
-                        <Button layoutX="752.0" layoutY="21.0" mnemonicParsing="false" style="-fx-background-color: #9FD7E3;" text="_">
+                        <Button layoutX="752.0" layoutY="21.0" mnemonicParsing="false" onAction="#minimizeApplication" style="-fx-background-color: #9FD7E3;" text="_">
                            <font>
                               <Font name="System Bold" size="10.0" />
                            </font>
