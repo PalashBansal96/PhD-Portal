@@ -112,15 +112,6 @@ public class PhDApplication {
 		Files.write(Paths.get(filePath), jsonData.getBytes(), StandardOpenOption.APPEND);
 	}
 
-	public void loadFromFile() throws IOException {
-
-	}
-
-
-
-
-
-
 	public String getName() {
 		return name;
 	}
@@ -737,14 +728,14 @@ public class PhDApplication {
 	public Boolean getPhysicallyDisabled() {
 		return physicallyDisabled;
 	}
-	public void setPhysicallyDisabled(Boolean physicallyDisabled) {
-		this.physicallyDisabled = physicallyDisabled;
+	public void setPhysicallyDisabled(String physicallyDisabled) {
+		this.physicallyDisabled = physicallyDisabled.equals("Yes");
 	}
 	public Boolean getDefenceConcession() {
 		return defenceConcession;
 	}
-	public void setDefenceConcession(Boolean defenceConsession) {
-		this.defenceConcession = defenceConsession;
+	public void setDefenceConcession(String defenceConcession) {
+		this.defenceConcession = defenceConcession.equals("Yes");
 	}
 	public Boolean getEce() {
 		return ece;

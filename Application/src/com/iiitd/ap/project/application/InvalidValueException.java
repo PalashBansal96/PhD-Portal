@@ -8,7 +8,7 @@ package com.iiitd.ap.project.application;
 import java.io.IOException;
 
 public class InvalidValueException extends IOException {
-	String field;
+	public String field;
 	public InvalidValueException(String str) {
 		super(str);
 		field = str;
