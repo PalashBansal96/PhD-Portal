@@ -5,7 +5,6 @@
 package com.iiitd.ap.project.application;
 
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -32,6 +31,9 @@ public class PhDApplication {
 
 		try{
 			JSONObject jsonObject= (JSONObject) parser.parse(json);
+
+			result.timestamp = (String) jsonObject.get("timestamp");
+			result.date = (String) jsonObject.get("date");
 
 			result.name = (String) jsonObject.get("name");
 			result.enrollNo = (String) jsonObject.get("enrollNo");
@@ -62,14 +64,16 @@ public class PhDApplication {
 
 			result.physicallyDisabled = (Boolean) jsonObject.get("physicallyDisabled");
 			result.defenceConcession = (Boolean) jsonObject.get("defenceConcession");
-			result.xBoardPercent = (Integer) jsonObject.get("xBoardPercent");
-			result.xBoardYear = (Integer) jsonObject.get("xBoardYear");
-			result.xiiBoardPercent = (Integer) jsonObject.get("xiiBoardPercent");
-			result.xiiBoardYear = (Integer) jsonObject.get("xiiBoardYear");
-			result.gradYear = (Integer) jsonObject.get("gradYear");
-			result.gradCGPA = (Integer) jsonObject.get("gradCGPA");
-			result.gradNoSub = (Integer) jsonObject.get("gradNoSub");
-			result.gradMarks = (Integer) jsonObject.get("gradMarks");
+			result.xBoardPercent = ((Long) jsonObject.get("xBoardPercent")).intValue();
+			result.xBoardYear = ((Long) jsonObject.get("xBoardYear")).intValue();
+			result.xiiBoardPercent = ((Long) jsonObject.get("xiiBoardPercent")).intValue();
+			result.xiiBoardYear = ((Long) jsonObject.get("xiiBoardYear")).intValue();
+			result.gradYear = ((Long) jsonObject.get("gradYear")).intValue();
+			if(result.gradScore.equals("CGPA")) {
+				result.gradCGPA = ((Long) jsonObject.get("gradCGPA")).intValue();
+				result.gradNoSub = ((Long) jsonObject.get("gradNoSub")).intValue();
+			}else
+				result.gradMarks = ((Long) jsonObject.get("gradMarks")).intValue();
 			result.ece = (Boolean) jsonObject.get("ece");
 			result.postGrad = (Boolean) jsonObject.get("postGrad");
 			result.other = (Boolean) jsonObject.get("other");
@@ -83,10 +87,7 @@ public class PhDApplication {
 			}
 
 			if(result.postGrad) {
-				result.postGradYear = (Integer) jsonObject.get("postGradYear");
-				result.postGradCGPA = (Integer) jsonObject.get("postGradCGPA");
-				result.postGradNoSub = (Integer) jsonObject.get("postGradNoSub");
-				result.postGradMarks = (Integer) jsonObject.get("postGradMarks");
+				result.postGradYear = ( (Long) jsonObject.get("postGradYear")).intValue();
 				result.postGradDegree = (String) jsonObject.get("postGradDegree");
 				result.postGradDepartment = (String) jsonObject.get("postGradDepartment");
 				result.postGradCollege = (String) jsonObject.get("postGradCollege");
@@ -94,21 +95,26 @@ public class PhDApplication {
 				result.postGradCity = (String) jsonObject.get("postGradCity");
 				result.postGradState = (String) jsonObject.get("postGradState");
 				result.postGradScore = (String) jsonObject.get("postGradScore");
+				if(result.postGradScore.equals("CGPA")) {
+					result.postGradCGPA = ((Long) jsonObject.get("postGradCGPA")).intValue();
+					result.postGradNoSub = ((Long) jsonObject.get("postGradNoSub")).intValue();
+				}else
+					result.postGradMarks = ( (Long) jsonObject.get("postGradMarks")).intValue();
 			}
 
 			if(result.other) {
 				result.otherExamName = (String) jsonObject.get("otherExamName");
 				result.otherSubject = (String) jsonObject.get("otherSubject");
-				result.otherScore = (Integer) jsonObject.get("otherScore");
-				result.otherRank = (Integer) jsonObject.get("otherRank");
-				result.otherYear = (Integer) jsonObject.get("otherYear");
+				result.otherScore = ((Long) jsonObject.get("otherScore")).intValue();
+				result.otherRank = ( (Long) jsonObject.get("otherRank")).intValue();
+				result.otherYear = ( (Long) jsonObject.get("otherYear")).intValue();
 			}
 
 			if(result.gate) {
-				result.gateMarks = (Integer) jsonObject.get("gateMarks");
-				result.gateScore = (Integer) jsonObject.get("gateScore");
-				result.gateRank = (Integer) jsonObject.get("gateRank");
-				result.gateYear = (Integer) jsonObject.get("gateYear");
+				result.gateMarks = ( (Long) jsonObject.get("gateMarks")).intValue();
+				result.gateScore = ( (Long) jsonObject.get("gateScore")).intValue();
+				result.gateRank = ( (Long) jsonObject.get("gateRank")).intValue();
+				result.gateYear = ( (Long) jsonObject.get("gateYear")).intValue();
 				result.gateArea = (String) jsonObject.get("gateArea");
 			}
 
@@ -120,9 +126,6 @@ public class PhDApplication {
 	}
 
 	public void appendToFile() throws IOException {
-		RandomAccessFile f = new RandomAccessFile(filePath, "rw");
-		f.setLength(f.length() - 1);
-		f.close();
 
 		JSONObject jsonObject = new JSONObject();
 
@@ -211,11 +214,14 @@ public class PhDApplication {
 			jsonObject.put("gateArea", gateArea);
 		}
 
-		jsonData = jsonObject.toJSONString() + "\n]";
+		jsonData = jsonObject.toJSONString() + "\n";
 
 		Files.write(Paths.get(filePath), jsonData.getBytes(), StandardOpenOption.APPEND);
 	}
 
+	public String getDate() {
+		return date;
+	}
 	public String getName() {
 		return name;
 	}

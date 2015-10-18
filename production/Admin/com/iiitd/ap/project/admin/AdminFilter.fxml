@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iiitd.ap.project.admin.AdminFilterController">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab style="-fx-font-size: 18;" text="Personal Information">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e5e5e5;">
+                     <children>
+                        <GridPane layoutX="81.0" prefHeight="520.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="207.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="389.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="226.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Email" textAlignment="RIGHT" GridPane.halignment="RIGHT" />
+                              <Label style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Name" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <Label style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Enrollment Number" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <Label style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Category" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                              <Label style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Gender" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                              <Label style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Physically Disabled" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                              <Label style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Date  of Birth" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                              <TextField fx:id="email" style="-fx-font-size: 14; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="name" style="-fx-font-size: 14; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="enrollNo" style="-fx-font-size: 14; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <ComboBox fx:id="category" prefWidth="150.0" style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Male">
+                                       <padding>
+                                          <Insets left="35.0" />
+                                       </padding>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="gender" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Female" toggleGroup="$gender">
+                                       <padding>
+                                          <Insets left="35.0" />
+                                       </padding>
+                                    </RadioButton>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets top="25.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Yes">
+                                       <HBox.margin>
+                                          <Insets left="35.0" />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="physicallyDisabled" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="No" toggleGroup="$physicallyDisabled">
+                                       <HBox.margin>
+                                          <Insets left="35.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets top="25.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="Before">
+                                       <HBox.margin>
+                                          <Insets left="35.0" />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="DOB" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="On" toggleGroup="$DOB">
+                                       <HBox.margin>
+                                          <Insets left="35.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" style="-fx-font-size: 14; -fx-text-fill: #459e58; -fx-font-weight: bold;" text="After" toggleGroup="$DOB">
+                                       <HBox.margin>
+                                          <Insets left="35.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets top="25.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <DatePicker fx:id="DOBDate" style="-fx-font-size: 14; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" />
+                                 </GridPane.margin>
+                              </DatePicker>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab style="-fx-font-size: 18;" text="Educational Information">
+               <content>
+                  <AnchorPane style="-fx-background-color: #e5e5e5;">
+                     <children>
+                        <GridPane prefHeight="516.0" prefWidth="800.0" style="-fx-font-weight: bold;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="249.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="565.0" minWidth="10.0" prefWidth="551.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label style="-fx-text-fill: #459e58;" text="PhD Stream" GridPane.halignment="RIGHT" />
+                              <Label style="-fx-text-fill: #459e58;" text="Graduation Degree" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <Label style="-fx-text-fill: #459e58;" text="Post Graduation Degree" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <Label style="-fx-text-fill: #459e58;" text="Class X Board" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                              <Label style="-fx-text-fill: #459e58;" text="Class XII Board" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                              <Label style="-fx-text-fill: #459e58;" text="Department(Graduation)" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                              <Label style="-fx-text-fill: #459e58;" text="Department(Post Graduation)" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                              <Label style="-fx-text-fill: #459e58;" text="University(Graduation)" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                              <Label style="-fx-text-fill: #459e58;" text="University(Post Graduation)" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+                              <Label style="-fx-text-fill: #459e58;" text="State(Graduation form)" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+                              <Label style="-fx-text-fill: #459e58;" text="State(Post Graduation form)" GridPane.halignment="RIGHT" GridPane.rowIndex="10" />
+                              <Label style="-fx-text-fill: #459e58;" text="Class X Board Percentage" GridPane.halignment="RIGHT" GridPane.rowIndex="11" />
+                              <Label style="-fx-text-fill: #459e58;" text="Class XII Board Percentage" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
+                              <Label style="-fx-text-fill: #459e58;" text="Graduation Mark Percentage" GridPane.halignment="RIGHT" GridPane.rowIndex="13" />
+                              <Label style="-fx-text-fill: #459e58;" text="Post Graduation Mark Percentage" GridPane.halignment="RIGHT" GridPane.rowIndex="14" />
+                              <Label style="-fx-text-fill: #459e58;" text="GATE Score" GridPane.halignment="RIGHT" GridPane.rowIndex="15" />
+                              <ComboBox fx:id="stream" prefWidth="150.0" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <ComboBox fx:id="gradDegree" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <ComboBox fx:id="postGradDegree" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="xBoard">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="xiiBoard">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <ComboBox fx:id="gradDepartment" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <ComboBox fx:id="postGradDepart" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <TextField fx:id="gradUniversity" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="postGradUniversity" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <ComboBox fx:id="gradState" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <ComboBox fx:id="postGradState" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-text-fill: #459e58;" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                 <children>
+                                    <CheckBox mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Greater than" fx:id="xGreat">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Equals" fx:id="xEqual">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Lesser than" fx:id="xLess">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField promptText="Percent" fx:id="xPercent">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox layoutX="259.0" layoutY="370.0" prefHeight="100.0" prefWidth="200.0" style="-fx-text-fill: #459e58;" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                 <children>
+                                    <CheckBox mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Greater than" fx:id="xiiGreat">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Equals" fx:id="xiiEqual">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Lesser than" fx:id="xiiLess">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField promptText="Percent" fx:id="xiiPercent">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-text-fill: #459e58;" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                 <children>
+                                    <CheckBox fx:id="gradGreat" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Greater than">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="gradEqual" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Equals">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="gradLess" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Lesser than">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="gradPercent" promptText="Percent">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-text-fill: #459e58;" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                                 <children>
+                                    <CheckBox fx:id="postGreat" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Greater than">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="postEqual" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Equals">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="postLess" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Lesser than">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="postPercent" promptText="Percent">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-text-fill: #459e58;" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                                 <children>
+                                    <CheckBox fx:id="gateGreat" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Greater than">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="gateEqual" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Equals">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="gateLess" mnemonicParsing="false" style="-fx-text-fill: #459e58;" text="Lesser than">
+                                       <HBox.margin>
+                                          <Insets top="7.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="gateScore" promptText="Score">
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets left="35.0" right="100.0" />
+                                 </GridPane.margin>
+                              </HBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab style="-fx-font-size: 18;" text="Submit">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #e5e5e5;">
+                     <children>
+                        <GridPane layoutX="74.0" layoutY="55.0" prefHeight="516.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="248.0" minHeight="6.0" prefHeight="74.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="340.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="341.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #459e58;" text="Application Date From" GridPane.halignment="RIGHT" />
+                              <Label style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #459e58;" text="Application Dated Upto" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="dateFrom" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="50.0" />
+                                 </GridPane.margin>
+                              </DatePicker>
+                              <DatePicker fx:id="dateUpto" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="50.0" />
+                                 </GridPane.margin>
+                              </DatePicker>
+                              <Button mnemonicParsing="false" onAction="#showResults" style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16;" text="Show Filtered Result" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="46.0" fitWidth="803.0">
+               <image>
+                   <Image url="@../../../../../../../../../../Downloads/AP_Project/AP_Project/src/images/banner.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="777.0" layoutY="-3.0" mnemonicParsing="false" onAction="#exitApplication" style="-fx-background-color: #c53e3e; -fx-font-weight: bold;" text="X" />
+            <Button layoutX="749.0" layoutY="-2.0" mnemonicParsing="false" onAction="#minimizeApplication" style="-fx-background-color: #166f72; -fx-font-weight: bold;" text="_" />
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <Label prefHeight="25.0" prefWidth="782.0" style="-fx-text-fill: #FBC51D; -fx-font-size: 16; -fx-font-weight: bold;" text="Developed by Vipin and Palash at IIIT Delhi.All right Reserved " BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iiitd.ap.project.admin.AdminFilterController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iiitd.ap.project.admin.ResultController">
    <center>
       <AnchorPane>
          <children>
@@ -19,7 +18,7 @@
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label prefHeight="47.0" prefWidth="800.0" style="-fx-background-color: #009688; -fx-font-weight: bold; -fx-font-size: 22; -fx-text-fill: white;" text="                                                     Filtered Result" GridPane.columnSpan="2">
@@ -27,14 +26,14 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <TableView prefHeight="482.0" prefWidth="800.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+                  <TableView fx:id="table" prefHeight="482.0" prefWidth="800.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
                     <columns>
-                      <TableColumn prefWidth="227.0" text="Enrollment ID" />
-                      <TableColumn prefWidth="334.0" text="Name " />
-                        <TableColumn prefWidth="235.0" text="Link to Data" />
+                      <TableColumn fx:id="enrollNo" prefWidth="227.0" text="Enrollment ID" />
+                      <TableColumn fx:id="name" prefWidth="334.0" text="Name " />
+                        <TableColumn fx:id="data" prefWidth="235.0" text="Link to Data" />
                     </columns>
                   </TableView>
-                  <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-font-weight: bold; -fx-text-fill: #004d40; -fx-font-size: 14;" text="BACK" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: white; -fx-font-weight: bold; -fx-text-fill: #004d40; -fx-font-size: 14;" text="BACK" textAlignment="CENTER">
                      <GridPane.margin>
                         <Insets left="60.0" />
                      </GridPane.margin>
@@ -49,7 +48,7 @@
          <children>
             <ImageView fitHeight="54.0" fitWidth="800.0" layoutY="-1.0">
                <image>
-                  <Image url="@banner.png" />
+                   <Image url="@../../../../../../../images/banner.png" />
                </image>
             </ImageView>
             <Button layoutX="766.0" layoutY="-3.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="10.0" prefWidth="30.0" style="-fx-background-color: #c53e3e; -fx-font-size: 10; -fx-font-weight: bold; -fx-text-fill: white;" text="X" />

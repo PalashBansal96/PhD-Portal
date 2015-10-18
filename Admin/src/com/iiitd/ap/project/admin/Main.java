@@ -22,8 +22,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception{
 		primaryStage.initStyle(StageStyle.UNDECORATED);
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		Parent root = fxmlLoader.load(getClass().getResource("AdminFilter.fxml").openStream());
-		((AdminFilterController)fxmlLoader.getController()).initialize();
+		Parent root = FXMLLoader.load(getClass().getResource("AdminFilter.fxml"));//.openStream());
 		primaryStage.setTitle("PhD Application Admin Panel");
 		primaryStage.setScene(new Scene(root, 800, 600));
 		primaryStage.show();

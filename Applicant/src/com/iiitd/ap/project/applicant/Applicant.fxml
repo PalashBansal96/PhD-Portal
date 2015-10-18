@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.layout.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.control.TabPane?>
 
 <BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iiitd.ap.project.applicant.Controller">
    <center>
@@ -797,12 +795,12 @@
                                                       <Insets left="10.0" />
                                                    </GridPane.margin>
                                                 </Label>
-                                                <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Button mnemonicParsing="false" onAction="#cvUpload" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="35.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Button mnemonicParsing="false" onAction="#sopUpload" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="35.0" />
                                                    </GridPane.margin>
@@ -841,12 +839,12 @@
                         <TextField layoutX="180.0" layoutY="400.0" prefHeight="25.0" prefWidth="336.0" style="-fx-text-fill: black;" />
                         <ImageView fitHeight="55.0" fitWidth="794.0" layoutX="4.0" layoutY="3.0">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/AP_Project/AP_Project/src/images/pay_banner.PNG" />
+                              <Image url="@../../../../../../../images/pay_banner.PNG" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="137.0" fitWidth="788.0" layoutX="7.0" layoutY="122.0">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/AP_Project/AP_Project/src/images/payaddress.PNG" />
+                              <Image url="@../../../../../../../images/payaddress.PNG" />
                            </image>
                         </ImageView>
                      </children>
@@ -902,7 +900,7 @@
                      <children>
                         <Label layoutX="14.0" layoutY="14.0" prefHeight="48.0" prefWidth="742.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Please complete and save all the fields before you click the submit button. Once you have submitted you will not be able to edit any field." wrapText="true" />
                         <Button fx:id="masterSubmit" layoutX="14.0" layoutY="70.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="92.0" style="-fx-font-weight: bold; -fx-font-size: 15; -fx-background-color: #64dd17; -fx-text-fill: white;" text="SUBMIT" />
-                        <Label alignment="TOP_LEFT" layoutX="18.0" layoutY="115.0" prefHeight="356.0" prefWidth="669.0" style="-fx-text-fill: #FA2A00; -fx-font-weight: bold;" text="PLEASE FILL IT" wrapText="true" />
+                        <Label fx:id="error" alignment="TOP_LEFT" layoutX="18.0" layoutY="115.0" prefHeight="356.0" prefWidth="669.0" style="-fx-text-fill: #FA2A00; -fx-font-weight: bold;" text="PLEASE FILL IT" wrapText="true" />
                      </children>
                   </AnchorPane>
               </content>
@@ -943,7 +941,7 @@
                      <children>
                         <ImageView fitHeight="48.0" fitWidth="802.0" layoutY="16.0">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/AP_Project/AP_Project/src/images/banner.png" />
+                              <Image url="@../../../../../../../images/banner.png" />
                            </image>
                         </ImageView>
                         <Button layoutX="778.0" layoutY="21.0" mnemonicParsing="false" onAction="#exitApplication" style="-fx-background-color: #B8312E;" text="X">

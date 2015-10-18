@@ -10,9 +10,12 @@ import com.iiitd.ap.project.application.InvalidValueException;
 import com.iiitd.ap.project.application.PhDApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -20,141 +23,73 @@ import java.time.format.DateTimeFormatter;
 
 public class Controller {
 
-
-	@FXML
-	private TextField name;
-	@FXML
-	private TextField enrollNo;
-	@FXML
-	private TextArea address;
-	@FXML
-	private TextField mobileNo;
-	@FXML
-	private ToggleGroup phdStream;
-	@FXML
-	private ComboBox<String> areaPref1 = new ComboBox<String>();
-	@FXML
-	private ComboBox<String> areaPref2 = new ComboBox<String>();
-	@FXML
-	private ComboBox<String> areaPref3 = new ComboBox<String>();
-	@FXML
-	private TextField email;
-	@FXML
-	private DatePicker dob;
-	@FXML
-	private ToggleGroup gender;
-	@FXML
-	private ToggleGroup category;
-	@FXML
-	private ToggleGroup physicallyDisabled;
-	@FXML
-	private ToggleGroup defenceConcession;
-	@FXML
-	private TextField fatherName;
-	@FXML
-	private ComboBox<String> nationality = new ComboBox<String>();
-	@FXML
-	private TextArea permAddress;
-	@FXML
-	private TextField pinCode;
-	@FXML
-	private TextField xBoard;
-	@FXML
-	private TextField xBoardPercent;
-	@FXML
-	private ComboBox<String> xBoardYear = new ComboBox<String>();
-	@FXML
-	private TextField xiiBoard;
-	@FXML
-	private TextField xiiBoardPercent;
-	@FXML
-	private ComboBox<String> xiiBoardYear = new ComboBox<String>();
-	@FXML
-	private TextField gradDegree;
-	@FXML
-	private TextField gradDepartment;
-	@FXML
-	private TextField gradCollege;
-	@FXML
-	private TextField gradUniversity;
-	@FXML
-	private TextField gradCity;
-	@FXML
-	private ComboBox<String> gradState = new ComboBox<String>();
-	@FXML
-	private ComboBox<String> gradYear = new ComboBox<String>();
-	@FXML
-	private ToggleGroup gradScore;
-	@FXML
-	private TextField gradCGPA;
-	@FXML
-	private ComboBox<String> gradNoSub = new ComboBox<String>();
-	@FXML
-	private TextField gradMarks;
-	@FXML
-	private CheckBox ece;
-	@FXML
-	private ComboBox<String> ecePref1 = new ComboBox<String>();
-	@FXML
-	private ComboBox<String> ecePref2 = new ComboBox<String>();
-	@FXML
-	private ComboBox<String> ecePref3 = new ComboBox<String>();
-	@FXML
-	private ComboBox<String> ecePref4 = new ComboBox<String>();
-	@FXML
-	private CheckBox postGrad;
-	@FXML
-	private TextField postGradDegree;
-	@FXML
-	private TextField postGradDepartment;
-	@FXML
-	private TextField postGradCollege;
-	@FXML
-	private TextField postGradUniversity;
-	@FXML
-	private TextField postGradCity;
-	@FXML
-	private ComboBox<String> postGradState;
-	@FXML
-	private ComboBox<String> postGradYear = new ComboBox<String>();
-	@FXML
-	private ToggleGroup postGradScore;
-	@FXML
-	private TextField postGradCGPA;
-	@FXML
-	private ComboBox<String> postGradNoSub;
-	@FXML
-	private TextField postGradMarks;
-	@FXML
-	private CheckBox other;
-	@FXML
-	private TextField otherExamName;
-	@FXML
-	private TextField otherSubject;
-	@FXML
-	private TextField otherScore;
-	@FXML
-	private TextField otherRank;
-	@FXML
-	private ComboBox<String> otherYear = new ComboBox<String>();
-	@FXML
-	private CheckBox gate;
-	@FXML
-	private TextField gateArea;
-	@FXML
-	private TextField gateMarks;
-	@FXML
-	private TextField gateScore;
-	@FXML
-	private TextField gateRank;
-	@FXML
-	private ComboBox<String> gateYear = new ComboBox<String>();
-	@FXML
-	private TextField achievements;
-	@FXML
-	private Button masterSubmit;
-	@FXML
-	private TabPane tabPane;
+	@FXML private TextField name;
+	@FXML private TextField enrollNo;
+	@FXML private TextArea address;
+	@FXML private TextField mobileNo;
+	@FXML private ToggleGroup phdStream;
+	@FXML private ComboBox<String> areaPref1 = new ComboBox<>();
+	@FXML private ComboBox<String> areaPref2 = new ComboBox<>();
+	@FXML private ComboBox<String> areaPref3 = new ComboBox<>();
+	@FXML private TextField email;
+	@FXML private DatePicker dob;
+	@FXML private ToggleGroup gender;
+	@FXML private ToggleGroup category;
+	@FXML private ToggleGroup physicallyDisabled;
+	@FXML private ToggleGroup defenceConcession;
+	@FXML private TextField fatherName;
+	@FXML private ComboBox<String> nationality = new ComboBox<>();
+	@FXML private TextArea permAddress;
+	@FXML private TextField pinCode;
+	@FXML private TextField xBoard;
+	@FXML private TextField xBoardPercent;
+	@FXML private ComboBox<String> xBoardYear = new ComboBox<>();
+	@FXML private TextField xiiBoard;
+	@FXML private TextField xiiBoardPercent;
+	@FXML private ComboBox<String> xiiBoardYear = new ComboBox<>();
+	@FXML private TextField gradDegree;
+	@FXML private TextField gradDepartment;
+	@FXML private TextField gradCollege;
+	@FXML private TextField gradUniversity;
+	@FXML private TextField gradCity;
+	@FXML private ComboBox<String> gradState = new ComboBox<>();
+	@FXML private ComboBox<String> gradYear = new ComboBox<>();
+	@FXML private ToggleGroup gradScore;
+	@FXML private TextField gradCGPA;
+	@FXML private ComboBox<String> gradNoSub = new ComboBox<>();
+	@FXML private TextField gradMarks;
+	@FXML private CheckBox ece;
+	@FXML private ComboBox<String> ecePref1 = new ComboBox<>();
+	@FXML private ComboBox<String> ecePref2 = new ComboBox<>();
+	@FXML private ComboBox<String> ecePref3 = new ComboBox<>();
+	@FXML private ComboBox<String> ecePref4 = new ComboBox<>();
+	@FXML private CheckBox postGrad;
+	@FXML private TextField postGradDegree;
+	@FXML private TextField postGradDepartment;
+	@FXML private TextField postGradCollege;
+	@FXML private TextField postGradUniversity;
+	@FXML private TextField postGradCity;
+	@FXML private ComboBox<String> postGradState;
+	@FXML private ComboBox<String> postGradYear = new ComboBox<>();
+	@FXML private ToggleGroup postGradScore;
+	@FXML private TextField postGradCGPA;
+	@FXML private ComboBox<String> postGradNoSub;
+	@FXML private TextField postGradMarks;
+	@FXML private CheckBox other;
+	@FXML private TextField otherExamName;
+	@FXML private TextField otherSubject;
+	@FXML private TextField otherScore;
+	@FXML private TextField otherRank;
+	@FXML private ComboBox<String> otherYear = new ComboBox<>();
+	@FXML private CheckBox gate;
+	@FXML private TextField gateArea;
+	@FXML private TextField gateMarks;
+	@FXML private TextField gateScore;
+	@FXML private TextField gateRank;
+	@FXML private ComboBox<String> gateYear = new ComboBox<>();
+	@FXML private TextField achievements;
+	@FXML private Button masterSubmit;
+	@FXML private TabPane tabPane;
 
 	private PhDApplication phDApplication;
 	private boolean verified = false;
@@ -193,6 +128,7 @@ public class Controller {
 		try {
 			enrollNo.setText(generateEnrollmentNo());
 			enrollNo.setDisable(true);
+			phDApplication.setEnrollNo(enrollNo.getText());
 		} catch (Exception e) {
 			System.out.println("Error generating enrollment no");
 		}
@@ -378,10 +314,35 @@ public class Controller {
 			return true;
 		} catch (EmptyValueException e) {
 			System.out.println("Empty field: " + e.field);
+			error.setText("Empty field: " + e.field);
 			return false;
 		} catch (InvalidValueException e) {
 			System.out.println("Invalid Value: " + e.field);
+			error.setText("Invalid Value: " + e.field);
 			return false;
+		}
+	}
+
+	@FXML
+	private Label error;
+
+	@FXML
+	void sopUpload() throws IOException {
+		FileChooser fileChooser = new FileChooser();
+		File file = fileChooser.showOpenDialog(null);
+		if(file!=null){
+			File t = new File("./database/SOP" + phDApplication.getEnrollNo());
+			Files.copy(file.toPath(), t.toPath());
+		}
+	}
+
+	@FXML
+	void cvUpload() throws IOException {
+		FileChooser fileChooser = new FileChooser();
+		File file = fileChooser.showOpenDialog(null);
+		if(file!=null){
+			File t = new File("./database/CV" + phDApplication.getEnrollNo());
+			Files.copy(file.toPath(), t.toPath());
 		}
 	}
 	@FXML
